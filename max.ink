@@ -6,7 +6,7 @@
 Un día, Max exploraba las montañas cercanas a su hogar y descubrió la entrada a una misteriosa caverna.
   -> entrada 
   
-== entrada ==
+== entr ada ==
 
  * Se decidió a entrar
    -> fin
