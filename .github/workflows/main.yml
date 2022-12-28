@@ -30,9 +30,8 @@ jobs:
           unzip inklecate_linux.zip
       - name: Compilar
         run: |
-          ./inklecate -o out.json max.ink
-          echo "var storyContent = $(cat out.json);" > max.js
-           sed -i 's/"inkVersion":21/"inkVersion":20/g' max.js
+          ./inklecate -o max.json max.ink
+          sed -i 's/"inkVersion":21/"inkVersion":20/g' max.json
           rm -Rf inklecate
           rm -Rf inklecate_linux.zip
       - name: Upload artifact
