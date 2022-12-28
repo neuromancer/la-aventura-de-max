@@ -13,4 +13,4 @@ jobs:
           unzip inklecate_linux.zip
       - name: Compile
         run: |
-          ./inklecate -o out.html max.ink
+          ./inklecate -o index.html max.ink
