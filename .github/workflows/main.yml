@@ -26,14 +26,14 @@ jobs:
         uses: actions/checkout@v3
       - name: Instalar Ink
         run: |
-          wget "https://github.com/inkle/ink/releases/download/v1.1.1/inklecate_linux.zip"
-          unzip inklecate_linux.zip
+          wget "https://github.com/y-lohse/inkjs/releases/download/v2.2.0/inkjs-2.2.0-dist.tar.gz"
+          tar -xf inkjs-2.2.0-dist.tar.gz
+          cp "inkjs-2.2.0/ink.js" .
       - name: Compilar
         run: |
-          ./inklecate -o max.json max.ink
-          sed -i 's/"inkVersion":21/"inkVersion":20/g' max.json
-          rm -Rf inklecate
-          rm -Rf inklecate_linux.zip
+          node inkjs-2.2.0/inkjs-compiler.js -o max.json max.ink
+          rm -Rf inkjs-2.2.0-dist.tar.gz
+          rm -Rf inkjs-2.2.0
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
