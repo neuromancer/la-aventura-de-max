@@ -10,7 +10,7 @@
     })
     .then(function(storyContent){
         story = new inkjs.Story(storyContent);
-        continueStory();
+        continueStory(true);
     });
     
     var savePoint = "";
