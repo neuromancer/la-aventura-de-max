@@ -1,7 +1,7 @@
 # IMAGE: https:\/\/i.pinimg.com/originals/44/66/6f/44666f16028897c388597b37aa1877bf.png
 
 Un día, Max exploraba las montañas cercanas a su hogar y descubrió la entrada a una misteriosa caverna.
-  -> entrada 
+  -> inicio 
   
 == inicio ==
 
