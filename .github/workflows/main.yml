@@ -31,14 +31,14 @@ jobs:
           cp "inkjs-2.2.0/ink.js" .
       - name: Compilar
         run: |
-          node inkjs-2.2.0/inkjs-compiler.js -o max.json max.ink
+          node inkjs-2.2.0/inkjs-compiler.js -o html/max.json max.ink
           rm -Rf inkjs-2.2.0-dist.tar.gz
           rm -Rf inkjs-2.2.0
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
           # Upload entire repository
-          path: "."
+          path: "html"
   deploy:
     if: github.ref == 'refs/heads/main'
     environment:
