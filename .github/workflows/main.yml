@@ -1,5 +1,4 @@
-# Simple workflow for deploying static content to GitHub Pages
-name: Deployment to Pages using Pandoc and Actions
+name: Deployar juego
 
 on:
   # Runs on pushes targeting the default branch
@@ -31,7 +30,10 @@ jobs:
           unzip inklecate_linux.zip
       - name: Compilar
         run: |
-          ./inklecate -o index.html max.ink
+          ./inklecate -o out.json max.ink
+          echo -e "var storyContent = \{$(cat out.json)\}" > Untitled.js
+          rm -Rf inklecate
+          rm -Rf inklecate_linux.zip
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
