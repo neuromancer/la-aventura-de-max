@@ -17,33 +17,8 @@
     let savedTheme;
     let globalTagTheme;
 
-    // Global tags - those at the top of the ink file
-    // We support:
-    //  # theme: dark
-    //  # author: Your Name
-    var globalTags = story.globalTags;
-    if( globalTags ) {
-        for(var i=0; i<story.globalTags.length; i++) {
-            var globalTag = story.globalTags[i];
-            var splitTag = splitPropertyTag(globalTag);
-
-            // THEME: dark
-            if( splitTag && splitTag.property == "theme" ) {
-                globalTagTheme = splitTag.val;
-            }
-
-            // author: Your Name
-            else if( splitTag && splitTag.property == "author" ) {
-                var byline = document.querySelector('.byline');
-                byline.innerHTML = "by "+splitTag.val;
-            }
-        }
-    }
-
     var outerScrollContainer = document.querySelector('.outerContainer');
 
-    // page features setup
-    setupTheme(globalTagTheme);
     var hasSave = loadSavePoint();
     setupButtons(hasSave);
 
@@ -316,26 +291,6 @@
             console.debug("Couldn't load save state");
         }
         return false;
-    }
-
-    // Detects which theme (light or dark) to use
-    function setupTheme(globalTagTheme) {
-
-        // load theme from browser memory
-        var savedTheme;
-        try {
-            savedTheme = window.localStorage.getItem('theme');
-        } catch (e) {
-            console.debug("Couldn't load saved theme");
-        }
-
-        // Check whether the OS/browser is configured for dark mode
-        var browserDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-        if (savedTheme === "dark"
-            || (savedTheme == undefined && globalTagTheme === "dark")
-            || (savedTheme == undefined && globalTagTheme == undefined && browserDark))
-            document.body.classList.add("dark");
     }
 
     // Used to hook up the functionality for global functionality buttons
