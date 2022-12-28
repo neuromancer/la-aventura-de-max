@@ -52,15 +52,97 @@
 
             // Get ink to generate the next paragraph
             var paragraphText = story.Continue();
+            var tags = story.currentTags;
 
-            // Create paragraph element
+            // Any special tags included with this line
+            var customClasses = [];
+            for(var i=0; i<tags.length; i++) {
+                var tag = tags[i];
+
+                // Detect tags of the form "X: Y". Currently used for IMAGE and CLASS but could be
+                // customised to be used for other things too.
+                var splitTag = splitPropertyTag(tag);
+
+                // AUDIO: src
+                if( splitTag && splitTag.property == "AUDIO" ) {
+                  if('audio' in this) {
+                    this.audio.pause();
+                    this.audio.removeAttribute('src');
+                    this.audio.load();
+                  }
+                  this.audio = new Audio(splitTag.val);
+                  this.audio.play();
+                }
+
+                // AUDIOLOOP: src
+                else if( splitTag && splitTag.property == "AUDIOLOOP" ) {
+                  if('audioLoop' in this) {
+                    this.audioLoop.pause();
+                    this.audioLoop.removeAttribute('src');
+                    this.audioLoop.load();
+                  }
+                  this.audioLoop = new Audio(splitTag.val);
+                  this.audioLoop.play();
+                  this.audioLoop.loop = true;
+                }
+
+                // IMAGE: src
+                if( splitTag && splitTag.property == "IMAGE" ) {
+                    var imageElement = document.createElement('img');
+                    imageElement.src = splitTag.val;
+                    storyContainer.appendChild(imageElement);
+
+                    showAfter(delay, imageElement);
+                    delay += 200.0;
+                }
+
+                // LINK: url
+                else if( splitTag && splitTag.property == "LINK" ) {
+                    window.location.href = splitTag.val;
+                }
+
+                // LINKOPEN: url
+                else if( splitTag && splitTag.property == "LINKOPEN" ) {
+                    window.open(splitTag.val);
+                }
+
+                // BACKGROUND: src
+                else if( splitTag && splitTag.property == "BACKGROUND" ) {
+                    outerScrollContainer.style.backgroundImage = 'url('+splitTag.val+')';
+                }
+
+                // CLASS: className
+                else if( splitTag && splitTag.property == "CLASS" ) {
+                    customClasses.push(splitTag.val);
+                }
+
+                // CLEAR - removes all existing content.
+                // RESTART - clears everything and restarts the story from the beginning
+                else if( tag == "CLEAR" || tag == "RESTART" ) {
+                    removeAll("p");
+                    removeAll("img");
+
+                    // Comment out this line if you want to leave the header visible when clearing
+                    setVisible(".header", false);
+
+                    if( tag == "RESTART" ) {
+                        restart();
+                        return;
+                    }
+                }
+            }
+
+            // Create paragraph element (initially hidden)
             var paragraphElement = document.createElement('p');
             paragraphElement.innerHTML = paragraphText;
             storyContainer.appendChild(paragraphElement);
 
+            // Add any custom classes derived from ink tags
+            for(var i=0; i<customClasses.length; i++)
+                paragraphElement.classList.add(customClasses[i]);
+
             // Fade in paragraph after a short delay
             showAfter(delay, paragraphElement);
-
             delay += 200.0;
         }
 
