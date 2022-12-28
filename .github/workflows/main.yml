@@ -31,7 +31,7 @@ jobs:
       - name: Compilar
         run: |
           ./inklecate -o out.json max.ink
-          echo -e "var storyContent = {$(cat out.json)}" > Untitled.js
+          echo "var storyContent = $(cat out.json);" > max.js
           rm -Rf inklecate
           rm -Rf inklecate_linux.zip
       - name: Upload artifact
