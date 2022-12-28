@@ -22,7 +22,7 @@ Max se aventuró en la cueva sin mirar atrás. Al entrar se topó con una mister
   * Decidió ir a la derecha
     -> fin
   * Decidió ir a la izquierda
-    -> fin
+    -> entrada
   
 == fin ==
 # CLEAR
