@@ -3,13 +3,8 @@
 	var story;
     var storyContainer = document.querySelectorAll('#story')[0];
 
-	fetch('max.json')
-	.then(function(response){
-		return response.text();
-	})
-	.then(function(storyContent){
+	fetch('max.json').then(function(storyContent){
 		story = new inkjs.Story(storyContent);
-		continueStory();
 	});
 
     var savePoint = "";
