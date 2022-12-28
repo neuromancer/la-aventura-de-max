@@ -13,9 +13,10 @@ jobs:
           unzip inklecate_linux.zip
       - name: Compilar
         run: |
-          ./inklecate -o index.html max.ink    
+          ./inklecate -o index.html max.ink
+          tar -cf index.tar.gz index.html
       - name: Upload Artifact GitHub Action
         uses: actions/upload-artifact@v2
         with: 
           name: github-pages
-          path: index.html
+          path: index.tar.gz
