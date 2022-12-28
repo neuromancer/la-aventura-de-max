@@ -1,0 +1,24 @@
+name: test
+on: [push, pull_request]
+
+on:
+  push:
+    branches:
+    - master
+  pull_request:
+    branches:
+    - master
+
+jobs:
+  hlint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install Ink
+        run: |
+          wget "https://github.com/inkle/ink/releases/download/v1.1.1/inklecate_linux.zip"
+          unzip inklecate_linux.zip
+      - name: Compile
+        run: |
+          inklecate -o out.html max.ink
