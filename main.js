@@ -1,12 +1,18 @@
 (function() {
-	
-	var story;
+
+    var story;
+
     var storyContainer = document.querySelectorAll('#story')[0];
 
-	fetch('max.json').then(function(storyContent){
-		story = new inkjs.Story(storyContent);
-	});
-
+    fetch('max.json')
+    .then(function(response){
+        return response.text();
+    })
+    .then(function(storyContent){
+        story = new inkjs.Story(storyContent);
+        continueStory();
+    });
+    
     var savePoint = "";
 
     let savedTheme;
@@ -14,14 +20,8 @@
 
     var outerScrollContainer = document.querySelector('.outerContainer');
 
-    var hasSave = loadSavePoint();
-    setupButtons(hasSave);
-
-    // Set initial save point
-    savePoint = story.state.toJson();
-
-    // Kick off the start of the story!
-    continueStory(true);
+    //var hasSave = loadSavePoint();
+    //setupButtons(hasSave);
 
     // Main story processing function. Each time this is called it generates
     // all the next content up as far as the next set of choices.
