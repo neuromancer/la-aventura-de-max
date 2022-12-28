@@ -17,7 +17,7 @@ Max miró otra vez en la caverna y lo reconsideró
 == fin ==
 # CLEAR
 
-# IMAGE: end.jpg
+# IMAGE: images/end.jpg
 
 ¿Que misteriosos secretos esperan dentro de la caverna? ¿Encontrará Max la salida algún dia sin ser devorado por canívales del diablo que tienen un culto de noseque y ese bicho de demoño aparece mientras escapa?
       -> END
