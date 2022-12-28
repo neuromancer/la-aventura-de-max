@@ -2,7 +2,7 @@ name: test
 on: [push, pull_request]
 
 jobs:
-  hlint:
+  ink:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -13,4 +13,4 @@ jobs:
           unzip inklecate_linux.zip
       - name: Compile
         run: |
-          inklecate -o out.html max.ink
+          ./inklecate -o out.html max.ink
