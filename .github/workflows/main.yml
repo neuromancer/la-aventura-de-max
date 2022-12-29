@@ -28,7 +28,7 @@ jobs:
         run: |
           wget "https://github.com/y-lohse/inkjs/releases/download/v2.2.0/inkjs-2.2.0-dist.tar.gz"
           tar -xf inkjs-2.2.0-dist.tar.gz
-          cp "inkjs-2.2.0/ink.js" .
+          cp "inkjs-2.2.0/ink.js" html
       - name: Compilar
         run: |
           node inkjs-2.2.0/inkjs-compiler.js -o html/max.json max.ink
