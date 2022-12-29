@@ -15,9 +15,10 @@ Max miró otra vez en la caverna y lo reconsideró
   -> inicio
 
 == entrada ==
+# CLEAR
 # IMAGE: https:\/\/i.redd.it/q931xasoy4p31.jpg
 
-Max se aventuró en la cueva sin mirar atrás. Al entrar se topó con una misteriosa figura en la pared y una bifurcación en el camino.
+Finalmente, Max se aventuró en la cueva sin mirar atrás. Al entrar se topó con una misteriosa figura en la pared y una bifurcación en el camino.
 
   * Decidió ir a la derecha
     -> fin
@@ -26,7 +27,6 @@ Max se aventuró en la cueva sin mirar atrás. Al entrar se topó con una mister
   
 == fin ==
 # CLEAR
-
 # IMAGE: images/end.jpg
 
 ¿Que misteriosos secretos esperan dentro de la caverna? ¿Encontrará Max la salida algún dia sin ser devorado por canívales del diablo que tienen un culto de noseque y ese bicho de demoño aparece mientras escapa?
