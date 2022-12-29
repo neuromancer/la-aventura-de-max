@@ -1,8 +1,8 @@
 (function() {
 
     var story;
-
     var storyContainer = document.querySelectorAll('#story')[0];
+    var savePoint = "";
 
     fetch('max.json')
     .then(function(response){
@@ -10,18 +10,17 @@
     })
     .then(function(storyContent){
         story = new inkjs.Story(storyContent);
+        savePoint = story.state.toJson();
         continueStory(true);
     });
-    
-    var savePoint = "";
 
     let savedTheme;
     let globalTagTheme;
 
     var outerScrollContainer = document.querySelector('.outerContainer');
 
-    //var hasSave = loadSavePoint();
-    //setupButtons(hasSave);
+    var hasSave = loadSavePoint();
+    setupButtons(hasSave);
 
     // Main story processing function. Each time this is called it generates
     // all the next content up as far as the next set of choices.
@@ -242,6 +241,8 @@
             el.parentNode.removeChild(el);
         }
     }
+
+    scrollToBottom();
 
     // Used for hiding and showing the header when you CLEAR or RESTART the story respectively.
     function setVisible(selector, visible)
