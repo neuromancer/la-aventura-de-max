@@ -22,6 +22,8 @@ Finalmente, Max se aventuró en la cueva sin mirar atrás. Al entrar se topó co
 
   * Decidió ir a la derecha
     -> fin
+  * Decidió ir al centro
+    -> fin
   * Decidió ir a la izquierda
     -> fin
   
