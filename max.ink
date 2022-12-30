@@ -27,6 +27,14 @@ Finalmente, Max se aventuró en la cueva sin mirar atrás. Al entrar se topó co
   * Decidió ir a la izquierda
     -> fin
   
+== habitacion ==  
+en la habitacion hay una estructura de madera con un parecido a una casa con un cofre de piedra sin cerradura
+  * abrio el cofre 
+    en el interior encontro una llave dorada con forma de huesito
+    -> fin
+  * max volvio al intermedio
+    -> entrada
+  
 == fin ==
 # CLEAR
 # IMAGE: images/end.jpg
