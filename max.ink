@@ -28,6 +28,7 @@ Finalmente, Max se aventuró en la cueva sin mirar atrás. Al entrar se topó co
     -> fin
   
 == habitacion ==  
+# IMAGE: images/elcrofre.jpg
 en la habitacion hay una estructura de madera con un parecido a una casa con un cofre de piedra sin cerradura
   * abrio el cofre 
     en el interior encontro una llave dorada con forma de huesito
