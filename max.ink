@@ -21,7 +21,7 @@ Max miró otra vez en la caverna y lo reconsideró
 Finalmente, Max se aventuró en la cueva sin mirar atrás. Al entrar se topó con una misteriosa figura en la pared y una bifurcación en el camino.
 
   * Decidió ir a la derecha
-    -> fin
+    -> habitacion
   * Decidió ir al centro
     -> fin
   * Decidió ir a la izquierda
